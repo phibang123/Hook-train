@@ -1,13 +1,26 @@
+import './index.css';
+import 'bootstrap/dist/css/bootstrap.min.css';
+import  '@fortawesome/fontawesome-svg-core'
+
+import App from './App';
+//set up redux
+import { Provider } from 'react-redux';
 import React from 'react';
 import ReactDOM from 'react-dom';
-import './index.css';
-import App from './App';
+import { createStore } from 'redux';
 import reportWebVitals from './reportWebVitals';
+import { rootReducer } from './redux/reducer/rootReducer'
+
+const store = createStore(rootReducer)
+
 
 ReactDOM.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>,
+  // <React.StrictMode>
+  //   <App />
+  // </React.StrictMode>,
+  <Provider store={store}>
+    <App></App>
+  </Provider>,
   document.getElementById('root')
 );
 
